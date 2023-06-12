@@ -82,7 +82,6 @@ public class ProjectController {
 
         return response;
     }
-
     @PostMapping("/login")
     public PostLoginResponse post(@RequestBody LoginRequest request) {
         // 요청 본문의 JSON 데이터를 LoginRequest 객체로 변환하여 받아옴
