@@ -87,6 +87,7 @@ public class ProjectController {
         // 요청 본문의 JSON 데이터를 LoginRequest 객체로 변환하여 받아옴
         int id = request.getId();
 
+
         // PostLoginResponse 객체 생성 및 설정
         PostLoginResponse response = PostLoginResponse.builder()
                 .id(id)
