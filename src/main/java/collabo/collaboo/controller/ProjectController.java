@@ -3,7 +3,7 @@ package collabo.collaboo.controller;
 import collabo.collaboo.dto.GetProjectResponse;
 import collabo.collaboo.dto.PostLoginResponse;
 import org.springframework.web.bind.annotation.*;
-import com.collabo.collaboo.controller;
+import com.collaboo.collaboo.controller;
 
 
 
@@ -224,7 +224,6 @@ public class ProjectController {
         String content = taskRequest.getContent();
         boolean isComplete = taskRequest.isComplete();
 
-        hello
         // 새로운 작업 생성 로직 수행
         // ...
 
