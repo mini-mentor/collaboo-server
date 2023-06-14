@@ -1,4 +1,8 @@
 package collabo.collaboo.repository;
 
-public class ProjectRepository {
+import collabo.collaboo.domain.Project;
+import collabo.collaboo.domain.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ProjectRepository extends JpaRepository<Project, String> {
 }
