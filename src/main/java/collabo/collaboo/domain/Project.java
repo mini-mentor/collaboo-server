@@ -26,9 +26,10 @@ public class Project {
 
 
     @Builder
-    public Project(String name, String info, String progress) {
+    public Project(String name, String info, String progress,Long project_id) {
         this.name = name;
         this.info = info;
         this.progress=progress;
+        this.project_id=project_id;
     }
 }
