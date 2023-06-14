@@ -1,20 +1,22 @@
 package collabo.collaboo.domain;
 
+
 import jakarta.persistence.*;
-        import lombok.AccessLevel;
-        import lombok.Builder;
-        import lombok.Getter;
-        import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@Table(name = "users")
 public class User {
-    private Object GenerationType;
 
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false)
-    private String Id;
+    @Column(name = "user_no", updatable = false)
+    private Long userNo;
 
     @Column(name = "user_name", nullable = false)
     private String userName;
@@ -27,21 +29,18 @@ public class User {
 
 
     @Builder
-    public User(String userName, String userId, String userPw, String Id) {
+    public User(String userName, String userId, String userPw) {
         this.userName = userName;
         this.userId = userId;
         this.userPw = userPw;
-        this.Id=Id;
     }
 
     public void update(String userName,
                        String userId,
-                       String userPw,
-                       String Id) {
+                       String userPw) {
 
         this.userName = userName;
         this.userId = userId;
         this.userPw = userPw;
-        this.Id=Id;
     }
 }

@@ -12,4 +12,5 @@ public class UpdateUserRequest {
     private String userId;
     private String userPw;
 
+
 }

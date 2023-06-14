@@ -1,5 +1,6 @@
 package collabo.collaboo.dto.user;
 
+import collabo.collaboo.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,14 +12,12 @@ public class AddUserRequest {
     private String userName;
     private String userId;
     private String userPw;
-    private String Id;
 
-    public <User> User toEntity(){
+    public User toEntity(){
         return User.builder()
                 .userName(userName)
                 .userId(userId)
                 .userPw(userPw)
-                .Id(Id)
                 .build();
 
     }

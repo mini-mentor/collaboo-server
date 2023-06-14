@@ -1,8 +1,11 @@
 package collabo.collaboo.service;
 
+
 import collabo.collaboo.domain.User;
+import collabo.collaboo.dto.user.AddUserRequest;
+import collabo.collaboo.dto.user.UpdateUserRequest;
 import collabo.collaboo.repository.UserRepository;
-import collabo.repository.User.AddUserRequest;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,20 +28,20 @@ public class UserService {
     }
 
     // delete
-    public void delete(long id) {
+    public void delete(Long id) {
         userRepository.deleteById(id);
     }
 
     // update
+
     @Transactional
-    public User update(long id, UpdateUserRequest request){
+    public User update(Long id, UpdateUserRequest request){
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
         user.update(
                 request.getUserName(),
                 request.getUserId(),
-                request.getUserPw(),
-                request.getId()
+                request.getUserPw()
         );
 
         return user;
