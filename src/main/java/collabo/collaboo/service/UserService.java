@@ -1,7 +1,7 @@
 package collabo.collaboo.service;
 
 import collabo.collaboo.domain.User;
-import collabo.repository.UserRepository;
+import collabo.collaboo.repository.UserRepository;
 import collabo.repository.User.AddUserRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

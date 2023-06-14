@@ -1,4 +1,4 @@
-package collabo.repository;
+package collabo.collaboo.repository;
 
 import collabo.collaboo.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
