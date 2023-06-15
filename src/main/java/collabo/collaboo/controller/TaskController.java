@@ -19,13 +19,13 @@ public class TaskController {
 
     @GetMapping("/tasks")
     public ResponseEntity<List<TaskResponse>> findAllTasks() {
-        List<TaskResponse> articles = taskService.findAll()
+        List<TaskResponse> tasks = taskService.findAll()
                 .stream()
                 .map(TaskResponse::new)
                 .toList();
 
         return ResponseEntity.ok()
-                .body(articles);
+                .body(tasks);
     }
 
     @GetMapping("/tasks/{id}")

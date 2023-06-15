@@ -1,15 +1,8 @@
 package collabo.collaboo.controller;
 
-import collabo.collaboo.domain.Badge;
-import collabo.collaboo.domain.Task;
 import collabo.collaboo.dto.Badge.BadgeResponse;
-import collabo.collaboo.dto.task.AddTaskRequest;
-import collabo.collaboo.dto.task.TaskResponse;
-import collabo.collaboo.dto.task.UpdateTaskRequest;
 import collabo.collaboo.service.BadgeService;
-import collabo.collaboo.service.TaskService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,17 +15,17 @@ public class BadgeController {
 
     @GetMapping("/badges")
     public ResponseEntity<List<BadgeResponse>> findAllBadges() {
-        List<BadgeResponse> badgeResponses = badgeService.findAll()
+        List<BadgeResponse> badges = badgeService.findAll()
                 .stream()
                 .map(BadgeResponse::new)
                 .toList();
 
         return ResponseEntity.ok()
-                .body(articles);
+                .body(badges);
     }
 
     @GetMapping("/badge_log")
-    public ResponseEntity<List<BadgeResponse>> findAllBadges() {
+    public ResponseEntity<List<BadgeResponse>> findAllBadgeLog() {
         List<BadgeResponse> articles = badgeService.findAll()
                 .stream()
                 .map(BadgeResponse::new)
