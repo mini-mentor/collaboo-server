@@ -1,7 +1,6 @@
 package collabo.collaboo.dto.project;
 
 import collabo.collaboo.domain.Project;
-import collabo.collaboo.domain.Task;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

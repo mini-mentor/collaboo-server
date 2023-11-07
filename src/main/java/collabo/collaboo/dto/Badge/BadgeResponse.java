@@ -1,8 +1,6 @@
 package collabo.collaboo.dto.Badge;
 
 import collabo.collaboo.domain.Badge;
-import collabo.collaboo.domain.Project;
-import collabo.collaboo.domain.Task;
 import lombok.Getter;
 
 @Getter

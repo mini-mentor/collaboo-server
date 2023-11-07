@@ -1,18 +1,10 @@
 package collabo.collaboo.controller;
 
 import collabo.collaboo.domain.Project;
-import collabo.collaboo.domain.Task;
-import collabo.collaboo.domain.User;
 import collabo.collaboo.dto.project.AddProjectRequest;
 import collabo.collaboo.dto.project.ProjectResponse;
 import collabo.collaboo.dto.project.UpdateProjectRequest;
-import collabo.collaboo.dto.task.AddTaskRequest;
-import collabo.collaboo.dto.task.TaskResponse;
-import collabo.collaboo.dto.user.AddUserRequest;
-import collabo.collaboo.dto.user.UpdateUserRequest;
-import collabo.collaboo.dto.user.UserResponse;
 import collabo.collaboo.service.ProjectService;
-import collabo.collaboo.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

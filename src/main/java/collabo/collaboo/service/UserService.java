@@ -4,12 +4,14 @@ package collabo.collaboo.service;
 import collabo.collaboo.domain.User;
 import collabo.collaboo.dto.user.AddUserRequest;
 import collabo.collaboo.dto.user.UpdateUserRequest;
+import collabo.collaboo.exception.user.UserNotFoundException;
 import collabo.collaboo.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -36,14 +38,15 @@ public class UserService {
 
     // update
     public User update(Long id, UpdateUserRequest request){
-        User user = userRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
-        user.update(
+        Optional<User> user = userRepository.findById(id);
+        if (user.isEmpty()) throw new UserNotFoundException();
+
+        user.get().update(
                 request.getUserName(),
                 request.getUserId(),
                 request.getUserPw()
         );
 
-        return user;
+        return user.get();
     }
 }

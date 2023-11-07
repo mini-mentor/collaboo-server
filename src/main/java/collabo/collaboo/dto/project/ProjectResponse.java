@@ -1,7 +1,6 @@
 package collabo.collaboo.dto.project;
 
 import collabo.collaboo.domain.Project;
-import collabo.collaboo.domain.Task;
 import lombok.Getter;
 
 @Getter

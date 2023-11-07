@@ -43,4 +43,7 @@ public class Project {
         this.userId=userId;
 
     }
+
+    public void update(String title, String info, String deadline, long people, long progress) {
+    }
 }

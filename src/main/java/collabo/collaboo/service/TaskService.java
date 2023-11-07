@@ -3,12 +3,14 @@ package collabo.collaboo.service;
 import collabo.collaboo.domain.Task;
 import collabo.collaboo.dto.task.AddTaskRequest;
 import collabo.collaboo.dto.task.UpdateTaskRequest;
+import collabo.collaboo.exception.task.TaskNotFoundException;
 import collabo.collaboo.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -26,8 +28,10 @@ public class TaskService {
     }
 
     public Task findById(Long id) {
-        return taskRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+        Optional<Task> task = taskRepository.findById(id);
+        if (task.isEmpty()) throw new TaskNotFoundException();
+
+        return task.get();
     }
 
     public void delete(long id) {
@@ -35,11 +39,11 @@ public class TaskService {
     }
 
     public Task update(long id, UpdateTaskRequest request) {
-        Task article = taskRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
+        Optional<Task> task = taskRepository.findById(id);
+        if (task.isEmpty()) throw new TaskNotFoundException();
 
-        article.update(request.getContent(), request.getIsCompelete());
+        task.get().update(request.getContent(), request.getIsCompelete());
 
-        return article;
+        return task.get();
     }
 }
