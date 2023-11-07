@@ -6,13 +6,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Getter
+@Entity @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id", updatable = false)
     private Long id; // 프로젝트 아이디
 
@@ -44,8 +42,5 @@ public class Project {
         this.deadline=deadline;
         this.userId=userId;
 
-    }
-
-    public void update(String title, String info, String deadline, long people, long progress) {
     }
 }
