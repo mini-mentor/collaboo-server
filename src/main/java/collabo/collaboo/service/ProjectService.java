@@ -8,14 +8,15 @@ import collabo.collaboo.dto.task.AddTaskRequest;
 import collabo.collaboo.dto.task.UpdateTaskRequest;
 import collabo.collaboo.repository.ProjectRepository;
 import collabo.collaboo.repository.TaskRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @Service
+@Transactional
 public class ProjectService {
     private final ProjectRepository projectRepository;
 
@@ -23,10 +24,12 @@ public class ProjectService {
         return projectRepository.save(request.toEntity());
     }
 
+    @Transactional(readOnly = true)
     public List<Project> findAll() {
         return  projectRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
     public Project findById(Long id) {
         return projectRepository.findById(String.valueOf(id))
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
@@ -36,7 +39,6 @@ public class ProjectService {
         projectRepository.deleteById(String.valueOf(id));
     }
 
-    @Transactional
     public Project update(long id, UpdateProjectRequest request) {
         Project article = projectRepository.findById(String.valueOf(id))
                 .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
